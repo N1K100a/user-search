@@ -51,7 +51,7 @@ export function SearchContainer({ setApiData, setIsResult }: Props) {
           setIsError(false);
         }}
         onKeyDown={(e) => {
-          if (e.key == "Enter") {
+          if (e.key === "Enter") {
             sendRequest();
           }
         }}
