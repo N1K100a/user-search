@@ -21,9 +21,10 @@ interface Props {
     blog: string;
     company: string;
   } | null;
+  dayShadow: {};
 }
 
-export default function ResultContainer({ apiData }: Props) {
+export default function ResultContainer({ apiData, dayShadow }: Props) {
   const formatedDate = moment(apiData?.created_at).format("DD MMM YYYY");
   const lastMargin = {
     marginRight: "50px",
@@ -33,10 +34,11 @@ export default function ResultContainer({ apiData }: Props) {
     opacity: "0.5",
     PointerEvents: "none !important",
   };
+
   return (
     <>
       {apiData && (
-        <ResultCon>
+        <ResultCon style={dayShadow}>
           <UserImg src={apiData.avatar_url} />
           <RightSide>
             <NameCon>
@@ -63,7 +65,7 @@ export default function ResultContainer({ apiData }: Props) {
             </InfoNumCon>
             <OtherInfoCon>
               <OtherItems style={!apiData.location ? notAvailable : {}}>
-                <Icons src={shape} />{" "}
+                <Icons src={shape} />
                 {apiData.location ? apiData.location : "Not Available"}
               </OtherItems>
               <OtherItems style={!apiData.twitter_username ? notAvailable : {}}>
@@ -76,7 +78,7 @@ export default function ResultContainer({ apiData }: Props) {
                 <ALink
                   style={{ pointerEvents: !apiData.blog ? "none" : "auto" }}
                   href={apiData.blog && apiData.blog}>
-                  <Icons src={iconUrl} />{" "}
+                  <Icons src={iconUrl} />
                   {apiData.blog ? apiData.blog : "Not Available"}
                 </ALink>
               </OtherItems>

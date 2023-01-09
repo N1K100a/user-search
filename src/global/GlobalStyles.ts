@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${({ theme }) => theme.boxColor};
+    background-color: ${({ theme }) => theme.siteColor};
     
 
   }

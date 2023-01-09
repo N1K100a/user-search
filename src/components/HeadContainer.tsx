@@ -27,7 +27,7 @@ const Head = styled.div`
 `;
 
 const HeadName = styled.div`
-  color: white;
+  color: ${({ theme }) => theme.siteName};
   font-size: 26px;
   line-height: 38px;
   font-weight: 700;
@@ -39,7 +39,7 @@ const ModeButton = styled.button`
   height: 38px;
   text-align: center;
   cursor: pointer;
-  color: white;
+  color: ${({ theme }) => theme.buttonText};
   font-size: 13px;
   font-weight: 700;
 `;

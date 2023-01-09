@@ -13,6 +13,10 @@ function App() {
   const [isResult, setIsResult] = useState(false);
   const [isDay, setIsDay] = useState(true);
 
+  const dayshadow = {
+    boxShadow: "0px 16px 30px -10px rgba(70, 96, 187, 0.198567)",
+  };
+
   return (
     <ThemeProvider theme={isDay ? theme.lightMode : theme.darkMode}>
       <GlobalStyles />
@@ -21,8 +25,17 @@ function App() {
       </Helmet>
       <div className="App">
         <HeadContainer isDay={isDay} setIsDay={setIsDay} />
-        <SearchContainer setIsResult={setIsResult} setApiData={setApiData} />
-        {isResult && <ResultContainer apiData={apiData} />}
+        <SearchContainer
+          setIsResult={setIsResult}
+          setApiData={setApiData}
+          dayShadow={isDay ? dayshadow : {}}
+        />
+        {isResult && (
+          <ResultContainer
+            apiData={apiData}
+            dayShadow={isDay ? dayshadow : {}}
+          />
+        )}
       </div>
     </ThemeProvider>
   );

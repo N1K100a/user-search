@@ -6,9 +6,10 @@ import arrowIcon from "./../assets/arrows.svg";
 interface Props {
   setApiData: React.Dispatch<React.SetStateAction<null>>;
   setIsResult: React.Dispatch<React.SetStateAction<boolean>>;
+  dayShadow: {};
 }
 
-export function SearchContainer({ setApiData, setIsResult }: Props) {
+export function SearchContainer({ setApiData, setIsResult, dayShadow }: Props) {
   const [userName, setUserName] = useState("");
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ export function SearchContainer({ setApiData, setIsResult }: Props) {
   };
 
   return (
-    <SearchCon>
+    <SearchCon style={dayShadow}>
       <SearchImg src={Icon} />
       <SearchInput
         type="text"
