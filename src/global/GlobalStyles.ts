@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle<{ theme: any }>`
   *{
     margin: 0;
     padding: 0;
@@ -14,7 +14,9 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #141D2F;
+    background-color: ${({ theme }) => theme.boxColor};
+    
+
   }
 
   .App {

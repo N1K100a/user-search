@@ -1,11 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function HeadContainer() {
+interface Props {
+  isDay: boolean;
+  setIsDay: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function HeadContainer({ isDay, setIsDay }: Props) {
   return (
     <Head>
       <HeadName>devfinder</HeadName>
-      <ModeButton>Light</ModeButton>
+      <ModeButton
+        onClick={() => {
+          setIsDay(!isDay);
+        }}>
+        {isDay ? "LIGHT" : "DARK"}
+      </ModeButton>
     </Head>
   );
 }
@@ -30,4 +40,6 @@ const ModeButton = styled.button`
   text-align: center;
   cursor: pointer;
   color: white;
+  font-size: 13px;
+  font-weight: 700;
 `;

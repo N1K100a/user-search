@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Icon from "./../assets/icon.png";
+import arrowIcon from "./../assets/arrows.svg";
 
 interface Props {
   setApiData: React.Dispatch<React.SetStateAction<null>>;
@@ -61,7 +62,8 @@ export function SearchContainer({ setApiData, setIsResult }: Props) {
         }}>
         Search
       </SearchBtn>
-      {isError ? <ErrText>No results</ErrText> : undefined}
+      {isError && <ErrText>No results</ErrText>}
+      {loading && <LoadingCircle src={arrowIcon} />}
     </SearchCon>
   );
 }
@@ -71,7 +73,7 @@ const SearchCon = styled.div`
   margin-top: 35px;
   height: 70px;
   width: 100%;
-  background-color: #1e2a47;
+  background-color: ${({ theme }) => theme.boxColor};
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -86,7 +88,7 @@ const SearchInput = styled.input`
   width: 100%;
   height: 40px;
   margin: 0 24px;
-  color: white;
+  color: ${({ theme }) => theme.smallText};
   background-color: transparent;
 `;
 
@@ -117,4 +119,22 @@ const ErrText = styled.p`
   pointer-events: none;
   font-weight: 700;
   color: #f74646;
+`;
+
+const animation = keyframes`
+0% { transform: rotateZ(0) }
+100% { transform: rotateZ(360deg) }
+`;
+
+const LoadingCircle = styled.img`
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 170px;
+  pointer-events: none;
+  animation-name: ${animation};
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border: none;
 `;
