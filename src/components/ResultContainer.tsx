@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
-import shape from "../assets/Shape.png";
-import iconUrl from "../assets/002-url.png";
-import Path from "../assets/Path.png";
-import iconOffice from "../assets/office-building.png";
+import Location from "../Icons/Location";
+import Twitter from "../Icons/Twitter";
+import Blog from "../Icons/Blog";
+import Company from "../Icons/Company";
 
 interface Props {
   apiData: {
@@ -34,7 +34,6 @@ export default function ResultContainer({ apiData, dayShadow }: Props) {
     opacity: "0.5",
     PointerEvents: "none !important",
   };
-
   return (
     <>
       {apiData && (
@@ -65,26 +64,34 @@ export default function ResultContainer({ apiData, dayShadow }: Props) {
             </InfoNumCon>
             <OtherInfoCon>
               <OtherItems style={!apiData.location ? notAvailable : {}}>
-                <Icons src={shape} />
-                {apiData.location ? apiData.location : "Not Available"}
+                <Location />
+                <IconText>
+                  {apiData.location ? apiData.location : "Not Available"}
+                </IconText>
               </OtherItems>
               <OtherItems style={!apiData.twitter_username ? notAvailable : {}}>
-                <Icons src={Path} />
-                {apiData.twitter_username
-                  ? apiData.twitter_username
-                  : "Not Available"}
+                <Twitter />
+                <IconText>
+                  {apiData.twitter_username
+                    ? apiData.twitter_username
+                    : "Not Available"}
+                </IconText>
               </OtherItems>
               <OtherItems style={!apiData.blog ? notAvailable : {}}>
                 <ALink
                   style={{ pointerEvents: !apiData.blog ? "none" : "auto" }}
                   href={apiData.blog && apiData.blog}>
-                  <Icons src={iconUrl} />
-                  {apiData.blog ? apiData.blog : "Not Available"}
+                  <Blog />
+                  <IconText>
+                    {apiData.blog ? apiData.blog : "Not Available"}
+                  </IconText>
                 </ALink>
               </OtherItems>
               <OtherItems style={!apiData.company ? notAvailable : {}}>
-                <Icons src={iconOffice} />
-                {apiData.company ? apiData.company : "Not Available"}
+                <Company />
+                <IconText>
+                  {apiData.company ? apiData.company : "Not Available"}
+                </IconText>
               </OtherItems>
             </OtherInfoCon>
           </RightSide>
@@ -194,6 +201,7 @@ const OtherItems = styled.div`
   flex-shrink: 0;
   color: ${({ theme }) => theme.smallText};
   text-transform: capitalize;
+  position: relative;
 `;
 
 const ALink = styled.a`
@@ -203,7 +211,7 @@ const ALink = styled.a`
   display: flex;
 `;
 
-const Icons = styled.img`
-  height: 20px;
-  margin-right: 22px;
+const IconText = styled.div`
+  position: absolute;
+  left: 35px;
 `;

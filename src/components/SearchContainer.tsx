@@ -104,6 +104,10 @@ const SearchBtn = styled.button`
   color: white;
   cursor: pointer;
   flex-shrink: 0;
+
+  &:hover {
+    background-color: #60abff;
+  }
 `;
 
 const SearchImg = styled.img`

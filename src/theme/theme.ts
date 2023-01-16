@@ -13,9 +13,10 @@ export const theme: Theme = {
     siteColor: "#F6F8FF",
     siteName: "#222731",
     buttonText: "#4B6A9B",
+    buttonHover: "#222731",
   },
   darkMode: {
-    smallText: "white", //თეთრი
+    smallText: "white",
     infoColor: "#141D2F",
     infoNumber: "#FFFFFF",
     userName: "#FFFFFF",
@@ -23,5 +24,6 @@ export const theme: Theme = {
     siteColor: "#141D2F",
     siteName: "#FFFFFF",
     buttonText: "#FFFFFF",
+    buttonHover: "#90A4D4",
   },
 };
