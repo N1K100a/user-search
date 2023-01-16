@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Dark from "../Icons/dayNight/Dark";
 import Light from "../Icons/dayNight/Light";
