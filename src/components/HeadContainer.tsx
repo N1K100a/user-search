@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Dark from "../Icons/dayNight/Dark";
 import Light from "../Icons/dayNight/Light";
+import { device } from "../deviceSizes/deviceSizes";
 
 interface Props {
   isDay: boolean;
@@ -26,6 +27,8 @@ const Head = styled.div`
   display: flex;
   justify-content: space-between;
   height: 38px;
+  @media ${device.tablet} {
+  }
 `;
 
 const HeadName = styled.div`

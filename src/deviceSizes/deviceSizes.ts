@@ -1,22 +1,19 @@
 interface Size {
   mobile: string;
   tablet: string;
-  laptop: string;
-  laptopL: string;
-  desktop: string;
+  smallTablet: string;
+  smallMobile: string;
 }
 const size: Size = {
-  mobile: "375px",
+  mobile: "480px",
+  smallTablet: "550px",
   tablet: "768px",
-  laptop: "1024px",
-  laptopL: "1440px",
-  desktop: "2560px",
+  smallMobile: "375px",
 };
 
 export const device = {
+  mobile: `(max-width: ${size.mobile})`,
+  smallMobile: `(max-width: ${size.smallMobile})`,
   tablet: `(max-width: ${size.tablet})`,
-  laptop: `(max-width: ${size.laptop})`,
-  laptopL: `(max-width: ${size.laptopL})`,
-  desktop: `(max-width: ${size.desktop})`,
-  desktopL: `(max-width: ${size.desktop})`,
+  smallTablet: `(max-width: ${size.smallTablet})`,
 };

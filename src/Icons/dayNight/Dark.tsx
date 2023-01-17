@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Dark() {
   return (
     <>
-      <div>Dark</div>
+      <div>DARK</div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"

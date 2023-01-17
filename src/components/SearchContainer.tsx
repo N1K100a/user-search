@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Icon from "./../assets/icon.png";
 import arrowIcon from "./../assets/arrows.svg";
+import { device } from "../deviceSizes/deviceSizes";
 
 interface Props {
   setApiData: React.Dispatch<React.SetStateAction<null>>;
@@ -70,7 +71,7 @@ export function SearchContainer({ setApiData, setIsResult, dayShadow }: Props) {
 }
 
 const SearchCon = styled.div`
-  padding: 10px 10px 10px 32px;
+  padding: 0 10px 0 32px;
   margin-top: 35px;
   height: 70px;
   width: 100%;
@@ -79,6 +80,10 @@ const SearchCon = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  @media ${device.smallMobile} {
+    height: 60px;
+    padding: 0 7px 0 16px;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -91,6 +96,15 @@ const SearchInput = styled.input`
   margin: 0 24px;
   color: ${({ theme }) => theme.smallText};
   background-color: transparent;
+  @media ${device.smallTablet} {
+    font-size: 15px;
+  }
+  @media ${device.mobile} {
+    font-size: 13px;
+  }
+  @media ${device.smallMobile} {
+    margin: 0 7px;
+  }
 `;
 
 const SearchBtn = styled.button`
@@ -108,6 +122,13 @@ const SearchBtn = styled.button`
   &:hover {
     background-color: #60abff;
   }
+  @media ${device.mobile} {
+    width: 84px;
+  }
+  @media ${device.smallMobile} {
+    height: 46px;
+    font-size: 14px;
+  }
 `;
 
 const SearchImg = styled.img`
@@ -124,6 +145,9 @@ const ErrText = styled.p`
   pointer-events: none;
   font-weight: 700;
   color: #f74646;
+  @media ${device.mobile} {
+    right: 105px;
+  }
 `;
 
 const animation = keyframes`
@@ -142,4 +166,7 @@ const LoadingCircle = styled.img`
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   border: none;
+  @media ${device.mobile} {
+    right: 135px;
+  }
 `;

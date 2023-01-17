@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { device } from "../deviceSizes/deviceSizes";
 
 export const GlobalStyles = createGlobalStyle<{ theme: any }>`
   *{
@@ -9,8 +10,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
   } 
 
   #root {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,16 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
   }
 
   .App {
-    width: 730px;
+    width: 100%;
+    max-width: 730px;
+    box-sizing: content-box;
+    
   }
 
+  @media ${device.tablet} {
+    .App {
+    max-width: 573px;
+    padding: 24px;
+  }
+  }
 `;
